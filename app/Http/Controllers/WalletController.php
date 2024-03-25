@@ -13,7 +13,10 @@ class WalletController extends Controller
      */
     public function index()
     {
-        //
+        $wallets = Wallet::all();
+
+        return view('pages.wallet.index', compact('wallets'));
+
     }
 
     /**
