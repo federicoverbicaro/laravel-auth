@@ -38,4 +38,6 @@ Route::middleware('auth')
 
         Route::resource('wallets', WalletController::class);
     });
+
+
 require __DIR__ . '/auth.php';
