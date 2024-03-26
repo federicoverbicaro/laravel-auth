@@ -8,16 +8,26 @@
         @csrf
         <div class="mb-3 d-flex flex-column gap-2">
             <label for="title" class="form-label">Title</label>
-            <input type="text" name="title" id="title" class="form-control" placeholder=""
-                aria-describedby="helpId" />
+            <input type="text" name="title" id="title"
+                class="form-control  @error('title') is-invalid @enderror"
+                placeholder="" aria-describedby="helpId" required />
+
             @error('title')
-            <div class="alert text-danger ">
-                {{ $message }}
+                <div class="alert alert-danger">
+                    {{ $message }}
+                </div>
+            @enderror
+
+
+            <label for="description" class="form-label">Description</label>
+            <textarea name="description" id="description" cols="60" rows="10" required class=" @error('title') is-invalid @enderror"></textarea>
+
+            @error('description')
+            <div class="alert alert-danger">
+                    {{ $message }}
             </div>
             @enderror
 
-            <label for="description" class="form-label">Description</label>
-            <textarea name="description" id="description" cols="60" rows="10"></textarea>
 
             <label for="image" class="form-label">Image</label>
             <input type="file" name="image" id="image" class="form-control" placeholder=""

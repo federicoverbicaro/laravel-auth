@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\StoreWalletRequest;
 use App\Http\Requests\UpdateWalletRequest;
@@ -25,7 +27,7 @@ class WalletController extends Controller
      */
     public function create()
     {
-        $this->authorize('create', Wallet::class);
+
 
         return view('pages.wallet.create');
     }
@@ -35,17 +37,15 @@ class WalletController extends Controller
      */
     public function store(StoreWalletRequest $request): RedirectResponse
     {
-        if ($request->user()->can('create', Wallet::class)) {
-            abort(403);
-        }
 
-        $formData = $request->validated();
+
+        $validatedData = $request->validated();
 
         $slug = Wallet::generateSlug($request->title);
 
-        $formData['slug'] = $slug;
+        $validatedData['slug'] = $slug;
 
-        $newWallet = Wallet::create($formData);
+        $newWallet = Wallet::create( $validatedData );
 
         return redirect()->route('dashboard.wallets.index');
 
