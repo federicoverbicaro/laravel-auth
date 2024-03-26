@@ -18,11 +18,12 @@
             </thead>
             <tbody>
                 @foreach ($wallets as $wallet)
-                    <tr>
+                    <tr class="">
                         <td>{{ $wallet->id }}</td>
 
                         <td class="text-center">
-                            <a href="{{ route('dashboard.wallets.show', ['wallet' => $wallet['id']]) }}" class="text-uppercase ">
+                            <a href="{{ route('dashboard.wallets.show', ['wallet' => $wallet['id']]) }}"
+                                class="text-uppercase ">
                                 {{ $wallet->title }}
                             </a>
                         </td>
@@ -32,14 +33,16 @@
                             <img src="{{ $wallet->image }}" alt="Immagine del portafoglio" width="100">
                         </td>
 
-                        <td class="text-center d-flex gap-2 align-items-end">
-                                <a href="{{ route('dashboard.wallets.edit',['wallet' => $wallet['id']]) }}" type="submit" class="btn btn-primary ">Edit</a>
 
-                                <form action="{{ route('dashboard.wallets.destroy', $wallet->id) }}" method="Post">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger ">Delete</button>
-                                </form>
+                        <td class=" d-flex gap-2 align-items-end border-0 ">
+                            <a href="{{ route('dashboard.wallets.edit', ['wallet' => $wallet['id']]) }}" type="submit"
+                                class="btn btn-primary ">Edit</a>
+
+                            <form action="{{ route('dashboard.wallets.destroy', $wallet->id) }}" method="Post">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger ">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach

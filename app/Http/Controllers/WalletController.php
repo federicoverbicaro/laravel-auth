@@ -74,6 +74,13 @@ class WalletController extends Controller
      */
     public function update(UpdateWalletRequest $request, Wallet $wallet)
     {
+        $validatedData = $request->validated();
+        $slug = Wallet::generateSlug($request->title);
+
+        $validatedData['slug'] = $slug;
+
+        $wallet->update($validatedData);
+
         return redirect()->route('dashboard.wallets.index');
     }
 

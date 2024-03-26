@@ -4,7 +4,7 @@
 @section('content')
     <h1 class="text-center text-capitalize m-3  ">Inserisci i dati per il nuovo progetto</h1>
 
-    <form class="container" action="{{ route('dashboard.wallets.store') }}" method="post">
+    <form class="container" action="{{ route('dashboard.wallets.store',$wallet->slug) }}" method="post">
         @csrf
         <div class="mb-3 d-flex flex-column gap-2">
             <label for="title" class="form-label">Title</label>
