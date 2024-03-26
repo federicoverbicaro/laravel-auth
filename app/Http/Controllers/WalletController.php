@@ -57,7 +57,8 @@ class WalletController extends Controller
      */
     public function show(Wallet $wallet)
     {
-        //
+        return view('pages.wallet.show', compact('wallet'));
+
     }
 
     /**
@@ -65,7 +66,7 @@ class WalletController extends Controller
      */
     public function edit(Wallet $wallet)
     {
-        //
+
     }
 
     /**
@@ -81,6 +82,9 @@ class WalletController extends Controller
      */
     public function destroy(Wallet $wallet)
     {
-        //
+
+        $wallet->delete();
+
+        return redirect()->route('dashboard.wallets.index');
     }
 }
