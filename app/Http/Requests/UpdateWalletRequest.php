@@ -11,7 +11,7 @@ class UpdateWalletRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,16 @@ class UpdateWalletRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'required|max:128',
+            'description' => 'required|max:128',
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'title.required' => 'Il titolo è obbligatorio',
+            'description.required' => 'Inserire la descrizione',
         ];
     }
 }

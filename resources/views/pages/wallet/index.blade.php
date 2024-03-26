@@ -33,7 +33,7 @@
                         </td>
 
                         <td class="text-center d-flex gap-2 align-items-end">
-                                <a type="submit" class="btn btn-primary ">Edit</a>
+                                <a href="{{ route('dashboard.wallets.edit',['wallet' => $wallet['id']]) }}" type="submit" class="btn btn-primary ">Edit</a>
 
                                 <form action="{{ route('dashboard.wallets.destroy', $wallet->id) }}" method="Post">
                                     @csrf

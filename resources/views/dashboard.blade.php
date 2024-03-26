@@ -19,6 +19,15 @@
 
                     {{ __('You are logged in!') }}
                 </div>
+
+            </div>
+
+            <div class="col mt-2 ">
+                <div class="border p-3 rounded-3 ">
+                    <h3 class="border-top-0 border-end-0 border-start-0 border text-capitalize ">Pagina Principale del Portfolio </h3>
+                    <a href="{{ route('dashboard.wallets.index') }}" class="btn btn-primary mt-2">Project</a>
+                </div>
+
             </div>
         </div>
     </div>

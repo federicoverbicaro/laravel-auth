@@ -22,6 +22,8 @@ class StoreWalletRequest extends FormRequest
      */
     public function rules(): array
     {
+
+
         return [
             'title' => 'required|max:128',
             'description' => 'required|max:128',
@@ -32,7 +34,7 @@ class StoreWalletRequest extends FormRequest
     {
         return [
             'title.required' => 'Il titolo è obbligatorio',
-            'description.required' => 'Inserire la descrizione',
+            'description.required' => 'Inserire la descrizione|max:128',
         ];
     }
 }

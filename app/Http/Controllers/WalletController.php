@@ -28,7 +28,6 @@ class WalletController extends Controller
     public function create()
     {
 
-
         return view('pages.wallet.create');
     }
 
@@ -66,7 +65,8 @@ class WalletController extends Controller
      */
     public function edit(Wallet $wallet)
     {
-
+        $wallets = Wallet::findOrFail($wallet->id);
+        return view('pages.wallet.edit', compact('wallets'));
     }
 
     /**
@@ -74,7 +74,7 @@ class WalletController extends Controller
      */
     public function update(UpdateWalletRequest $request, Wallet $wallet)
     {
-        //
+        return redirect()->route('dashboard.wallets.index');
     }
 
     /**
