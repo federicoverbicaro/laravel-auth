@@ -24,6 +24,7 @@ class UpdateWalletRequest extends FormRequest
         return [
             'title' => 'required|max:128',
             'description' => 'required|max:128',
+            'new_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,pdf|max:2048',
         ];
     }
 
@@ -32,6 +33,7 @@ class UpdateWalletRequest extends FormRequest
         return [
             'title.required' => 'Il titolo è obbligatorio',
             'description.required' => 'Inserire la descrizione',
+            'new_image' => 'Inserisci un immagine'
         ];
     }
 }

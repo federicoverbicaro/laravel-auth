@@ -4,7 +4,7 @@
     <div class="container">
         <h1>Elenco dei portafogli</h1>
 
-        <a href="{{ route('dashboard.wallets.create') }}" class="btn btn-primary col-12 m-3 ">Inserisci un nuovo Progetto</a>
+        <a href="{{ route('dashboard.wallets.create') }}" class="btn btn-primary col-12 m-3" >Inserisci un nuovo Progetto</a>
 
         <table class="table">
             <thead>
@@ -30,7 +30,7 @@
 
                         <td>{{ $wallet->description }}</td>
                         <td class="text-center">
-                            <img src="{{ $wallet->image }}" alt="Immagine del portafoglio" width="100">
+                            <img src="{{asset('storage/' . $wallet->new_image ) }}" alt="Immagine del portafoglio" width="100">
                         </td>
 
 

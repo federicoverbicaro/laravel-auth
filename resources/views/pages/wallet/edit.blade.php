@@ -4,7 +4,9 @@
 @section('content')
     <h1 class="text-center text-capitalize m-3  ">Modifica il progetto</h1>
 
-    <form class="container" action="{{ route('dashboard.wallets.update',$wallets->slug) }}" method="post">
+    <form class="container" action="{{ route('dashboard.wallets.update',$wallets->id) }}"
+        method="post"
+        enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -31,9 +33,9 @@
             @enderror
 
 
-            <label for="image" class="form-label">Image</label>
-            <input type="file" name="image" id="image" class="form-control" placeholder=""
-                aria-describedby="helpId"  value="{{ old('image',$wallets->image )}}" />
+            <label for="new_image" class="form-label">Image</label>
+            <input type="file" name="new_image" id="new_image" class="form-control" placeholder=""
+                aria-describedby="helpId"  value="{{ old('new_image',$wallets->new_image )}}" />
 
 
             <label for="category" class="form-label">Category</label>

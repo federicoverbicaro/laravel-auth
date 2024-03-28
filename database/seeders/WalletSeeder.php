@@ -12,6 +12,8 @@ use App\Models\Wallet;
 
 use Illuminate\Support\Str;
 
+use Illuminate\Support\Facades\Storage;
+
 
 class WalletSeeder extends Seeder
 {
@@ -25,7 +27,8 @@ class WalletSeeder extends Seeder
 
             $wallet->title = $faker->sentence(2);
             $wallet->description = $faker->paragraph();
-            $wallet->image = $faker->imageUrl($width = 640, $height = 480);
+            $path = Storage::put('images', $faker->image());
+            $wallet->new_image = $path;
             $wallet->category = $faker->word();
             $wallet->client = $faker->company();
             $wallet->date = $faker->date();

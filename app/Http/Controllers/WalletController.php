@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 
-use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\StoreWalletRequest;
 use App\Http\Requests\UpdateWalletRequest;
 use App\Models\Wallet;
+
 
 
 class WalletController extends Controller
@@ -34,20 +35,20 @@ class WalletController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreWalletRequest $request): RedirectResponse
+    public function store(StoreWalletRequest $request)
     {
-
 
         $validatedData = $request->validated();
 
-        $slug = Wallet::generateSlug($request->title);
+        // $slug = Wallet::generateSlug($request->title);
+        // $validatedData['slug'] = $slug;
 
-        $validatedData['slug'] = $slug;
+        $img_path = Storage::disk('public')->put('images',$validatedData['new_image']);
 
-        $newWallet = Wallet::create( $validatedData );
+        $wallet = Wallet::create( $validatedData );
+
 
         return redirect()->route('dashboard.wallets.index');
-
 
     }
 

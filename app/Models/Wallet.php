@@ -15,7 +15,7 @@ class Wallet extends Model
     protected $fillable = [
         'title',
         'description',
-        'image',
+        'new_image',
         'category',
         'client',
         'date',

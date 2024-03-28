@@ -4,7 +4,8 @@
 @section('content')
     <h1 class="text-center text-capitalize m-3  ">Inserisci i dati per il nuovo progetto</h1>
 
-    <form class="container" action="{{ route('dashboard.wallets.store',$wallet->slug) }}" method="post">
+    <form class="container" action="{{ route('dashboard.wallets.store') }}" method="post"
+        enctype="multipart/form-data">
         @csrf
         <div class="mb-3 d-flex flex-column gap-2">
             <label for="title" class="form-label">Title</label>
@@ -29,9 +30,14 @@
             @enderror
 
 
-            <label for="image" class="form-label">Image</label>
-            <input type="file" name="image" id="image" class="form-control" placeholder=""
-                aria-describedby="helpId" />
+            <label for="new_image" class="form-label">Image</label>
+            <input type="file" name="new_image" id="new_image" class="form-control"/>
+
+            @error('new_image')
+            <div class="alert alert-danger">
+                    {{ $message }}
+            </div>
+            @enderror
 
 
             <label for="category" class="form-label">Category</label>

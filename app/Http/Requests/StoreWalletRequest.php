@@ -27,6 +27,8 @@ class StoreWalletRequest extends FormRequest
         return [
             'title' => 'required|max:128',
             'description' => 'required|max:128',
+            'new_image' => 'required|file|mimetypes:image/jpeg,image/png,image/gif|max:2048',
+            // 'new_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,pdf|max:2048',
         ];
     }
 
@@ -35,6 +37,7 @@ class StoreWalletRequest extends FormRequest
         return [
             'title.required' => 'Il titolo è obbligatorio',
             'description.required' => 'Inserire la descrizione|max:128',
+            // 'new_image' => 'Inserisci un immagine'
         ];
     }
 }
