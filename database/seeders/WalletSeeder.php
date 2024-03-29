@@ -22,13 +22,12 @@ class WalletSeeder extends Seeder
      */
     public function run(Faker $faker ): void
     {
-        for($i = 0; $i < 10; $i++){
+        for($i = 0; $i < 15; $i++){
             $wallet = new Wallet();
 
             $wallet->title = $faker->sentence(2);
             $wallet->description = $faker->paragraph();
-            $path = Storage::put('images', $faker->image());
-            $wallet->new_image = $path;
+            $wallet->new_image = $faker->image(null, 360, 360);
             $wallet->category = $faker->word();
             $wallet->client = $faker->company();
             $wallet->date = $faker->date();

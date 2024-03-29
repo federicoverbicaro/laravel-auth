@@ -8,6 +8,8 @@ use App\Http\Requests\StoreWalletRequest;
 use App\Http\Requests\UpdateWalletRequest;
 use App\Models\Wallet;
 
+use Illuminate\Support\Str;
+
 
 
 class WalletController extends Controller
@@ -38,15 +40,19 @@ class WalletController extends Controller
     public function store(StoreWalletRequest $request)
     {
 
+
         $validatedData = $request->validated();
 
-        // $slug = Wallet::generateSlug($request->title);
-        // $validatedData['slug'] = $slug;
 
-        $img_path = Storage::disk('public')->put('images',$validatedData['new_image']);
+        $slug = Wallet::generateSlug($request->title);
+        $validatedData['slug'] = $slug;
+
+
+        $path = Storage::disk('public')->put('images', $request->new_image);
+
+        $validatedData['new_image'] = $path;
 
         $wallet = Wallet::create( $validatedData );
-
 
         return redirect()->route('dashboard.wallets.index');
 

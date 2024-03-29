@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1>Elenco dei portafogli</h1>
+        <h1 class="text-center text-capitalize ">Elenco dei progetti</h1>
 
         <a href="{{ route('dashboard.wallets.create') }}" class="btn btn-primary col-12 m-3" >Inserisci un nuovo Progetto</a>
 

@@ -34,8 +34,13 @@
 
 
             <label for="new_image" class="form-label">Image</label>
-            <input type="file" name="new_image" id="new_image" class="form-control" placeholder=""
+            <input type="file" name="new_image" id="new_image" class="form-control @error('title') is-invalid @enderror" placeholder=""
                 aria-describedby="helpId"  value="{{ old('new_image',$wallets->new_image )}}" />
+                @error('new_image')
+                <div class="alert alert-danger">
+                        {{ $message }}
+                </div>
+                @enderror
 
 
             <label for="category" class="form-label">Category</label>

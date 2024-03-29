@@ -31,7 +31,8 @@
 
 
             <label for="new_image" class="form-label">Image</label>
-            <input type="file" name="new_image" id="new_image" class="form-control"/>
+            <input type="file" name="new_image" id="new_image" class="form-control  @error('new_image') is-invalid @enderror"
+            />
 
             @error('new_image')
             <div class="alert alert-danger">
